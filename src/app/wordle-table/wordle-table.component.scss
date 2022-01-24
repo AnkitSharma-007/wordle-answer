@@ -1,0 +1,14 @@
+.ag-grid-custom {
+  width: 55%;
+  height: 500px;
+}
+
+@media screen and (max-width: 600px) {
+  .ag-grid-custom {
+    width: 90%;
+  }
+}
+
+a {
+  text-decoration: none;
+}

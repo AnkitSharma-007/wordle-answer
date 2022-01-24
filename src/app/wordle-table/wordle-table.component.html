@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="alert alert-success d-flex justify-content-center" role="alert">
+    <h3>Total Wordle available: {{ WordleArray?.length }}</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-xs-12 mx-auto">
+      <p class="d-flex justify-content-center">
+        <strong>Today's Date: </strong> {{ todayDate | date }}
+      </p>
+      <p class="d-flex justify-content-center">
+        <strong>Today's Wordle: </strong> {{ todayWordle | titlecase }}
+      </p>
+    </div>
+  </div>
+  <div *ngIf="WordleArray.length > 0" class="col-md-6 col-xs-12">
+    <div class="row mx-2">
+      <div class="col-md-4 col-xs-12 mx-auto">
+        <input
+          type="search"
+          [(ngModel)]="searchValue"
+          class="form-control"
+          id="filter-text-box"
+          placeholder="Search by Wordle #"
+        />
+      </div>
+    </div>
+    <div class="col mt-3">
+      <ag-grid-angular
+        class="ag-theme-alpine mx-auto ag-grid-custom"
+        [gridOptions]="gridOptions"
+        [quickFilterText]="searchValue"
+        [paginationPageSize]="paginationPageSize"
+      >
+      </ag-grid-angular>
+    </div>
+  </div>
+</div>
+
+<footer class="footer py-3">
+  <div class="container d-flex justify-content-center">
+    <span class="text-muted">
+      Made with ❤️ by
+      <a href="https://twitter.com/ankitsharma_007" target="_blank"
+        >Ankit</a
+      ></span
+    >
+  </div>
+</footer>
