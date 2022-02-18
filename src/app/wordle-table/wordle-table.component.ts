@@ -18,6 +18,7 @@ export class WordleTableComponent implements OnInit {
   timeDiffInDays = 0;
   firstWordleDate = new Date('6/19/2021');
   todayWordle = '';
+  todayWordleNumber = 0;
 
   WordleArray: Wordle[];
 
@@ -45,7 +46,7 @@ export class WordleTableComponent implements OnInit {
     this.initializeTable();
   }
 
-  getDateDiff() {
+  private getDateDiff() {
     const dateDiff =
       (this.todayDate.getTime() - this.firstWordleDate.getTime()) /
       (1000 * 3600 * 24);
@@ -53,7 +54,7 @@ export class WordleTableComponent implements OnInit {
     this.timeDiffInDays = Math.floor(dateDiff);
   }
 
-  initializeGrid() {
+  private initializeGrid() {
     this.gridOptions = {
       rowData: this.WordleArray,
       columnDefs: this.columnDefs,
@@ -61,7 +62,7 @@ export class WordleTableComponent implements OnInit {
     };
   }
 
-  initializeTable() {
+  private initializeTable() {
     this.wordleService.getJSON().subscribe((result: Wordle[]) => {
       this.WordleArray = result;
       this.initializeGrid();
@@ -69,7 +70,8 @@ export class WordleTableComponent implements OnInit {
     });
   }
 
-  setTodayWordle() {
+  private setTodayWordle() {
     this.todayWordle = this.WordleArray[this.timeDiffInDays].value;
+    this.todayWordleNumber = this.WordleArray[this.timeDiffInDays].id;
   }
 }

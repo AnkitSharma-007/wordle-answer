@@ -8,6 +8,9 @@
         <strong>Today's Date: </strong> {{ todayDate | date }}
       </p>
       <p class="d-flex justify-content-center">
+        <strong>Today's Wordle #: </strong> {{ todayWordleNumber }}
+      </p>
+      <p class="d-flex justify-content-center">
         <strong>Today's Wordle: </strong> {{ todayWordle | titlecase }}
       </p>
     </div>
@@ -36,13 +39,16 @@
   </div>
 </div>
 
-<footer class="footer py-3">
-  <div class="container d-flex justify-content-center">
-    <span class="text-muted">
+<footer class="footer my-4">
+  <div class="container d-flex flex-column align-items-center">
+    <div class="text-muted">
       Made with ❤️ by
-      <a href="https://twitter.com/ankitsharma_007" target="_blank"
-        >Ankit</a
-      ></span
-    >
+      <a href="https://twitter.com/ankitsharma_007" target="_blank">Ankit</a>
+    </div>
+    <div class="mt-2">
+      <a href="https://github.com/AnkitSharma-007/wordle-answer" target="_blank"
+        >Source code on GitHub</a
+      >
+    </div>
   </div>
 </footer>
